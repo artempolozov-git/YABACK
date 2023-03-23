@@ -24,7 +24,7 @@ router.post('/split', function(req, res, next) {
         "items": [
           {
             "count": 1,
-            "item_code": "323",
+            "item_code": "420",
             "price": req.body.price,
             "title": req.body.title,
           }
