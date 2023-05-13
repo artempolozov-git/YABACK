@@ -9,40 +9,40 @@ router.get('/', function(req, res, next) {
 
 router.post('/split', function(req, res, next) {
   let data = {
-    "order_meta": {
-      "consumer_meta": {
-        "order_ids": [
-          "3155"
-        ]
+    orderId: `${Math.random()}`,
+    cart: {
+      items: [
+        {
+          productId: "3",
+          total: req.body.prices,
+          title: req.body.products,
+          quantity: {
+            count: "1",
+          },
+        },
+      ],
+      total: {
+        amount: req.body.prices,
       },
-      "external_id": `${Math.random()}`
     },
-    "services": [
-      {
-        "amount": req.body.amount,
-        "currency": "RUB",
-        "items": [
-          {
-            "count": 1,
-            "item_code": "420",
-            "price": req.body.price,
-            "title": req.body.title,
-          }
-        ],
-        "type": "loan"
-      }
-    ]
+    currencyCode: "RUB",
+    merchantId: "2d123cbc-10df-4512-baa5-5008a9a7f302",
+    redirectUrls: {
+      onSuccess: "https://mirusbeauty.ru/sales/shop/dealPaid/id/config/hash/",
+      onError: "https://mirusbeauty.ru/404",
+    },
+    availablePaymentMethods: ["SPLIT"],
   };
   let config = {
     headers: {
-      'Authorization': "Bearer y0_AgAAAABUMB1TAAlFvAAAAADep96uOVjRyO4UTsWBZ6hF4gxLK-7CAMA",
+      'Authorization': `Api-Key 2d123cbc10df4512baa55008a9a7f302.sych_ZvYf6bby5Z3rSaxI6454UweOGBA`,
     },
   };
   console.log (req);
-  axios.post ('https://split-api.yandex.net/b2b/order/create',
+  axios.post ('https://pay.yandex.ru/api/merchant/v1/orders',
       data, config,)
       .then((response) => {
-        res.redirect(response.data.checkout_url);
+        res.send(response.data);
       })
       .catch((response) => {
         console.log(response);
