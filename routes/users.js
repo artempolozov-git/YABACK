@@ -26,16 +26,16 @@ router.post('/split', function(req, res, next) {
       },
     },
     currencyCode: "RUB",
-    merchantId: "2d123cbc-10df-4512-baa5-5008a9a7f302",
+    merchantId: "06408b5a-c091-42cb-80bf-0330d6472495",
     redirectUrls: {
-      onSuccess: "https://mirusbeauty.ru/sales/shop/dealPaid/id/config/hash/",
-      onError: "https://mirusbeauty.ru/404",
+      onSuccess: "https://xn--j1amdg6b.xn----7sbhdegumjf0agbb9c1e.xn--p1ai/sales/shop/dealPaid/id/config/hash/",
+      onError: "https://xn--j1amdg6b.xn----7sbhdegumjf0agbb9c1e.xn--p1ai/404",
     },
     availablePaymentMethods: ["SPLIT"],
   };
   let config = {
     headers: {
-      'Authorization': `Api-Key 2d123cbc10df4512baa55008a9a7f302.sych_ZvYf6bby5Z3rSaxI6454UweOGBA`,
+      'Authorization': `Api-Key 06408b5ac09142cb80bf0330d6472495.W80mzOTzMzqHVPsYMVWG39bCyN_czZF0`,
     },
   };
   console.log (req);
