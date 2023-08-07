@@ -26,16 +26,16 @@ router.post('/split', function(req, res, next) {
       },
     },
     currencyCode: "RUB",
-    merchantId: "06408b5a-c091-42cb-80bf-0330d6472495",
+    merchantId: "b4569681-9eb2-49ce-8dae-84421ed8a3bb",
     redirectUrls: {
-      onSuccess: "https://xn--j1amdg6b.xn----7sbhdegumjf0agbb9c1e.xn--p1ai/sales/shop/dealPaid/id/config/hash/",
-      onError: "https://xn--j1amdg6b.xn----7sbhdegumjf0agbb9c1e.xn--p1ai/404",
+      onSuccess: "https://mnailschool.ru/oplataproshla",
+      onError: "https://mnailschool.ru/oplataneproshla",
     },
     availablePaymentMethods: ["SPLIT"],
   };
   let config = {
     headers: {
-      'Authorization': `Api-Key 06408b5ac09142cb80bf0330d6472495.W80mzOTzMzqHVPsYMVWG39bCyN_czZF0`,
+      'Authorization': `Api-Key b45696819eb249ce8dae84421ed8a3bb.RROpDKu_YFbheiLzHkxzLcV9QT-e9t1z`,
     },
   };
   console.log (req);
