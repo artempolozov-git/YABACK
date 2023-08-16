@@ -31,7 +31,7 @@ router.post('/split', function(req, res, next) {
       onSuccess: "https://psamen.com/order",
       onError: "https://psamen.com/404",
     },
-    availablePaymentMethods: ["SPLIT"],
+    availablePaymentMethods: ["SPLIT", "CARD"],
   };
   let config = {
     headers: {
