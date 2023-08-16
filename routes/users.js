@@ -26,16 +26,16 @@ router.post('/split', function(req, res, next) {
       },
     },
     currencyCode: "RUB",
-    merchantId: "b4569681-9eb2-49ce-8dae-84421ed8a3bb",
+    merchantId: "190f6079-1735-4d1e-95a1-21cdba64d3b5",
     redirectUrls: {
-      onSuccess: "https://mnailschool.ru/oplataproshla",
-      onError: "https://mnailschool.ru/oplataneproshla",
+      onSuccess: "https://psamen.com/order",
+      onError: "https://psamen.com/404",
     },
     availablePaymentMethods: ["SPLIT"],
   };
   let config = {
     headers: {
-      'Authorization': `Api-Key b45696819eb249ce8dae84421ed8a3bb.RROpDKu_YFbheiLzHkxzLcV9QT-e9t1z`,
+      'Authorization': `Api-Key 190f607917354d1e95a121cdba64d3b5.l79m9zYOob5Yf1U_sZJsL6aS4gbJTKw1`,
     },
   };
   console.log (req);
@@ -46,7 +46,7 @@ router.post('/split', function(req, res, next) {
       })
       .catch((response) => {
         console.log(response);
-        res.status(400).send(response.error);
+        //res.status(400).send(response.error);
       });
 });
 
