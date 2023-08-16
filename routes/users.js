@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/split', function(req, res, next) {
   let data = {
-    orderId: `${Math.random()}`,
+    orderId: `${Math.round(Math.random()*100)}`,
     cart: {
       items: [
         {
