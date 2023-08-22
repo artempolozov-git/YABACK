@@ -26,16 +26,16 @@ router.post('/split', function(req, res, next) {
       },
     },
     currencyCode: "RUB",
-    merchantId: "190f6079-1735-4d1e-95a1-21cdba64d3b5",
+    merchantId: "e7c41730-a987-45d6-8fc2-fee137010bc0",
     redirectUrls: {
-      onSuccess: "https://psamen.com/order",
-      onError: "https://psamen.com/404",
+      onSuccess: "https://kronosgr.com/",
+      onError: "https://kronosgr.com/",
     },
-    availablePaymentMethods: ["SPLIT", "CARD"],
+    availablePaymentMethods: ["SPLIT"],
   };
   let config = {
     headers: {
-      'Authorization': `Api-Key 190f607917354d1e95a121cdba64d3b5.l79m9zYOob5Yf1U_sZJsL6aS4gbJTKw1`,
+      'Authorization': `Api-Key e7c41730a98745d68fc2fee137010bc0.dcAicAl34h32i2y8WqFTNcTVVdPQmdVf`,
     },
   };
   console.log (req);
