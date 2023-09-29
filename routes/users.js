@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/split', function(req, res, next) {
   let data = {
-    orderId: `${Math.round(Math.random()*100)}`,
+    orderId: `${Math.random()}`,
     cart: {
       items: [
         {
@@ -26,16 +26,16 @@ router.post('/split', function(req, res, next) {
       },
     },
     currencyCode: "RUB",
-    merchantId: "e7c41730-a987-45d6-8fc2-fee137010bc0",
+    merchantId: "1d2f6b86-21f8-4c25-b928-4d6dcd8a409a",
     redirectUrls: {
-      onSuccess: "https://kronosgr.com/",
-      onError: "https://kronosgr.com/",
+      onSuccess: "https://the-system.ru/",
+      onError: "https://the-system.ru/404",
     },
     availablePaymentMethods: ["SPLIT"],
   };
   let config = {
     headers: {
-      'Authorization': `Api-Key e7c41730a98745d68fc2fee137010bc0.dcAicAl34h32i2y8WqFTNcTVVdPQmdVf`,
+      'Authorization': `Api-Key 1d2f6b8621f84c25b9284d6dcd8a409a.wewctQn3ZN1O1CKssc0Hl-fEcqFeO33k`,
     },
   };
   console.log (req);
@@ -45,8 +45,8 @@ router.post('/split', function(req, res, next) {
         res.send(response.data);
       })
       .catch((response) => {
-        console.log(response);
-        //res.status(400).send(response.error);
+        //console.log(response);
+        res.status(400).send(response.error);
       });
 });
 
