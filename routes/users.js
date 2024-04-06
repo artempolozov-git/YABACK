@@ -1,52 +1,49 @@
-var express = require('express');
-var router = express.Router();
-const axios = require('axios');
-
 /* GET users listing. */
-router.get('/', function (req, res, next) {
+router.get('/', function(req, res, next) {
     res.send('split integration');
 });
 
 router.post('/split', function(req, res, next) {
+    let products = JSON.parse(req.body.products);
     let data = {
         orderId: `${Math.random()}`,
         cart: {
-            items: [
-                {
-                    productId: "3",
-                    total: req.body.prices,
-                    title: req.body.products,
+            items: products.map((item, index) => {
+                return {
+                    productId: String(index+1),
+                    total: item.pricing,
+                    title: item.names,
                     quantity: {
-                        count: "1",
+                        count: String(item.counting),
                     },
-                },
-            ],
+                }
+            }),
             total: {
-                amount: req.body.prices,
+                amount: req.body.price,
             },
         },
         currencyCode: "RUB",
-        merchantId: "53907dd4-6dcc-4099-a508-c0e35b3be724",
+        merchantId: "fc4d5a7f-5066-4193-9be8-01c09c5512aa",
         redirectUrls: {
-            onSuccess: "https://idanceballet.ru/sales/shop/dealPaid/id/config/hash/",
-            onError: "https://idanceballet.ru/404",
+            onSuccess: "https://alexandravarova.ru/success",
+            onError: "https://alexandravarova.ru/false",
         },
         availablePaymentMethods: ["SPLIT", "CARD"],
     };
     let config = {
         headers: {
-            'Authorization': `Api-Key 53907dd46dcc4099a508c0e35b3be724.Unemjk6P3yEIl_EbCZ0McHd9GPfQVk1g`,
+            'Authorization': `Api-Key fc4d5a7f-5066-4193-9be8-01c09c5512aa`,
         },
     };
-    //console.log (req);
-    axios.post ('https://pay.yandex.ru/api/merchant/v1/orders',
+    axios.post ('https://sandbox.pay.yandex.ru/api/merchant/v1/orders',
         data, config,)
         .then((response) => {
-            res.send(response.data);
+            res.redirect(response.data.data.paymentUrl);
         })
         .catch((response) => {
             //console.log(response);
             res.status(400).send(response.error);
         });
 });
+
 module.exports = router;
