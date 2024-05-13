@@ -23,19 +23,19 @@ router.post('/split', function(req, res, next) {
             },
         },
         currencyCode: "RUB",
-        merchantId: "fc4d5a7f-5066-4193-9be8-01c09c5512aa",
+        merchantId: "694755d8-17ae-460e-9eca-7fb89f671e9f",
         redirectUrls: {
-            onSuccess: "https://alexandravarova.ru/success",
-            onError: "https://alexandravarova.ru/false",
+            onSuccess: "https://piminovavalery.ru/success",
+            onError: "https://piminovavalery.ru/false",
         },
         availablePaymentMethods: ["SPLIT", "CARD"],
     };
     let config = {
         headers: {
-            'Authorization': `Api-Key fc4d5a7f-5066-4193-9be8-01c09c5512aa`,
+            'Authorization': `Api-Key 694755d817ae460e9eca7fb89f671e9f.8s5_d-hXAwzdNjD5Perj6XULkW5S4Er2`,
         },
     };
-    axios.post ('https://sandbox.pay.yandex.ru/api/merchant/v1/orders',
+    axios.post ('https://pay.yandex.ru/api/merchant/v1/orders',
         data, config,)
         .then((response) => {
             res.redirect(response.data.data.paymentUrl);
