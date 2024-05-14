@@ -1,3 +1,7 @@
+var express = require('express');
+var router = express.Router();
+const axios = require('axios');
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
     res.send('split integration');
@@ -23,19 +27,19 @@ router.post('/split', function(req, res, next) {
             },
         },
         currencyCode: "RUB",
-        merchantId: "694755d8-17ae-460e-9eca-7fb89f671e9f",
+        merchantId: "b1590ef1-14c6-4935-96bc-b31838508820",
         redirectUrls: {
-            onSuccess: "https://piminovavalery.ru/success",
-            onError: "https://piminovavalery.ru/false",
+            onSuccess: "https://mixologyacademy.ru",
+            onError: "https://mixologyacademy.ru",
         },
         availablePaymentMethods: ["SPLIT", "CARD"],
     };
     let config = {
         headers: {
-            'Authorization': `Api-Key 694755d817ae460e9eca7fb89f671e9f.8s5_d-hXAwzdNjD5Perj6XULkW5S4Er2`,
+            'Authorization': `Api-Key b1590ef1-14c6-4935-96bc-b31838508820`,
         },
     };
-    axios.post ('https://pay.yandex.ru/api/merchant/v1/orders',
+    axios.post ('https://sandbox.pay.yandex.ru/api/merchant/v1/orders',
         data, config,)
         .then((response) => {
             res.redirect(response.data.data.paymentUrl);
